@@ -10,6 +10,7 @@ $(document).ready(function() {
         if( numGuesses == 0){
             firstGuess();
         } else { 
+            $('#pic').html('<img src="" width="600" alt="hot or cold"/>');
             guessAction();
         }
     });
