@@ -3,23 +3,21 @@ var target = Math.round(Math.random() * 100);
 var numGuesses = 0;
 var guess = 0;
 var difference = 0;
-console.log(target);
 
 $(document).ready(function() {
-    console.log(target);
     $('#button').on('click', function(){
         guess = $('#guess').val();
-        
+           numGuesses++;
         if( numGuesses == 0 ){
             firstGuess();
         } else { 
             guessAction();
         }
-        numGuesses++;
     });
   
 });
 
+// action for the first guess
 function firstGuess(){
     difference = Math.abs(guess-target);
     $('#header').html('');
@@ -30,6 +28,7 @@ function firstGuess(){
     }
 };
 
+// action for the rest of the guesses
 function guessAction(){
     console.log(guess);
     var newDif = Math.abs(guess-target);
@@ -43,6 +42,7 @@ function guessAction(){
     difference = newDif;
 }
 
+//funciton when guess is closer
 function warmer(){
    
     $('#game').removeClass('box');
@@ -57,6 +57,7 @@ function warmer(){
     
 }
 
+// function for when guess is farther away
 function colder(){
     $("#pic").fadeOut(0, function(){
         $(this).addClass('ice');
@@ -69,8 +70,9 @@ function colder(){
     $('#story').html('Getting Colder');
 }
 
+//function for correct guess
 function win(){
-    $('#story').html('You Win!!!');
+    $('#story').html('You Win!!! <br/>' + numGuesses + ' Guesses');
     $('#guess').attr('type','submit');
     $('#guess').attr('value','New Game');
     $('#button').remove();
