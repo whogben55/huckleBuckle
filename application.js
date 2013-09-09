@@ -5,6 +5,13 @@ var guess = 0;
 var difference = 0;
 
 $(document).ready(function() {
+    $('#guess').keydown(function(event){
+        if(event.keyCode == 13) {
+            event.preventDefault();
+            $('#button').click();
+        }
+    })
+                      
     $('#button').on('click', function(){
         guess = $('#guess').val();
         if( !isNumeric(guess) || guess > 100){
