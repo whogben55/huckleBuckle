@@ -7,8 +7,7 @@ var difference = 0;
 $(document).ready(function() {
     $('#button').on('click', function(){
         guess = $('#guess').val();
-           numGuesses++;
-        if( numGuesses == 1 ){
+        if( numGuesses == 0){
             firstGuess();
         } else { 
             guessAction();
@@ -19,6 +18,7 @@ $(document).ready(function() {
 
 // action for the first guess
 function firstGuess(){
+    numGuesses++;
     difference = Math.abs(guess-target);
     $('#header').html('');
     if( guess == target ){
@@ -30,6 +30,7 @@ function firstGuess(){
 
 // action for the rest of the guesses
 function guessAction(){
+    numGuesses++;
     console.log(guess);
     var newDif = Math.abs(guess-target);
     if( guess == target ){
