@@ -8,7 +8,7 @@ $(document).ready(function() {
     $('#button').on('click', function(){
         guess = $('#guess').val();
            numGuesses++;
-        if( numGuesses == 0 ){
+        if( numGuesses == 1 ){
             firstGuess();
         } else { 
             guessAction();
