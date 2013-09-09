@@ -84,6 +84,8 @@ function colder(){
 
 //function for correct guess
 function win(){
+    $('#game').removeClass('box');
+    $('#game').removeAttr('style');
     $("#pic").fadeOut(0, function(){
         $(this).find("img").attr("src", "sun.jpeg");
         $(this).find("img").attr("width", "600");
