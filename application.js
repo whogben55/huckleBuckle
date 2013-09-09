@@ -74,6 +74,12 @@ function colder(){
 
 //function for correct guess
 function win(){
+    $("#pic").fadeOut(0, function(){
+        $(this).find("img").attr("src", "sun.jpeg");
+        $(this).find("img").attr("width", "600");
+        $(this).removeClass('ice');
+        $(this).fadeIn(200);
+    });
     $('#story').html('You Win!!! <br/>' + numGuesses + ' Guesses');
     $('#guess').attr('type','submit');
     $('#guess').attr('value','New Game');
