@@ -7,7 +7,10 @@ var difference = 0;
 $(document).ready(function() {
     $('#button').on('click', function(){
         guess = $('#guess').val();
-        if( numGuesses == 0){
+        if( !isNumeric(guess) || guess > 100){
+             $('#story').html('Thats Not a Valid </br> Number Silly'); 
+        }
+        else if( numGuesses == 0){
             firstGuess();
         } else { 
             $('#pic').html('<img src="" width="600" alt="hot or cold"/>');
@@ -84,4 +87,9 @@ function win(){
     $('#guess').attr('type','submit');
     $('#guess').attr('value','New Game');
     $('#button').remove();
+}
+
+//check if is a number
+function isNumeric(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
 }
