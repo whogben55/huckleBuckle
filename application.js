@@ -14,7 +14,7 @@ $(document).ready(function() {
                       
     $('#button').on('click', function(){
         guess = $('#guess').val();
-        if( !isNumeric(guess) || guess > 100){
+        if( !isNumeric(guess) || guess > 100 || guess < 0){
              $('#story').html('Thats Not a Valid </br> Number Silly'); 
         }
         else if( numGuesses == 0){
